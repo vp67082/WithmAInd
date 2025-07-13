@@ -16,6 +16,11 @@ import {
   Zap
 } from "lucide-react";
 
+// Import images
+import prozesseSteuernImg from "@/assets/prozesse-steuern.jpg";
+import workflowsVerbindenImg from "@/assets/workflows-verbinden.jpg";
+import mehrZeitGewinnenImg from "@/assets/mehr-zeit-gewinnen.jpg";
+
 const Index = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -28,17 +33,20 @@ const Index = () => {
     {
       icon: Settings,
       title: "Prozesse steuern.",
-      description: "Automatisiere deine Leadgenerierung, Follow-ups oder Terminbuchung – unabhängig von technischer Erfahrung."
+      description: "Automatisiere deine Leadgenerierung, Follow-ups oder Terminbuchung – unabhängig von technischer Erfahrung.",
+      image: prozesseSteuernImg
     },
     {
       icon: Link,
       title: "Workflows verbinden.",
-      description: "Integriere Tools wie Notion, Google Sheets, Slack oder Stripe nahtlos in deinen Arbeitsalltag."
+      description: "Integriere Tools wie Notion, Google Sheets, Slack oder Stripe nahtlos in deinen Arbeitsalltag.",
+      image: workflowsVerbindenImg
     },
     {
       icon: Clock,
       title: "Mehr Zeit gewinnen.",
-      description: "Lass repetitive Aufgaben mit Micro-Apps, Fahrtenbuch-Tools oder Telegram-Bots smart abnehmen."
+      description: "Lass repetitive Aufgaben mit Micro-Apps, Fahrtenbuch-Tools oder Telegram-Bots smart abnehmen.",
+      image: mehrZeitGewinnenImg
     }
   ];
 
@@ -76,11 +84,26 @@ const Index = () => {
   ];
 
   const testimonials = [
-    "Dank der Automatisierung spare ich jede Woche mehrere Stunden – ohne technische Vorkenntnisse!",
-    "Die Umsetzung war schnell, professionell und genau auf mein Business abgestimmt.",
-    "Mein Content wird jetzt automatisch gepostet – das bringt echte Erleichterung.",
-    "Ich wusste nicht, dass Automatisierung so intuitiv und menschlich sein kann.",
-    "Jede Empfehlung wurde verständlich erklärt und individuell auf mich angepasst."
+    {
+      text: "Dank der Automatisierung spare ich jede Woche mehrere Stunden – ohne technische Vorkenntnisse!",
+      name: "Sara M., Design Agentur"
+    },
+    {
+      text: "Die Umsetzung war schnell, professionell und genau auf mein Business abgestimmt.",
+      name: "Thomas K., Coach"
+    },
+    {
+      text: "Mein Content wird jetzt automatisch gepostet – das bringt echte Erleichterung.",
+      name: "Lisa R., Online Marketing"
+    },
+    {
+      text: "Ich wusste nicht, dass Automatisierung so intuitiv und menschlich sein kann.",
+      name: "Michael B., Berater"
+    },
+    {
+      text: "Jede Empfehlung wurde verständlich erklärt und individuell auf mich angepasst.",
+      name: "Anna S., E-Commerce"
+    }
   ];
 
   return (
@@ -97,8 +120,12 @@ const Index = () => {
                 Neu gedacht.
               </span>
             </h1>
-            <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto leading-relaxed">
               Effizient, intuitiv, menschlich.
+            </p>
+            <p className="text-lg text-primary mb-8 max-w-4xl mx-auto leading-relaxed font-medium">
+              Für Selbstständige, Coaches & Unternehmen, die ihre Zeit zurückholen wollen. 
+              Für smarte Prozesse, klare Systeme und mehr Leichtigkeit im Alltag.
             </p>
             <p className="text-lg text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
               Wir helfen Unternehmen, ihre Prozesse smart, effizient und zukunftssicher 
@@ -119,10 +146,10 @@ const Index = () => {
       {/* Core Competency Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background/50">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">
             Kernkompetenzen
           </h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg text-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
             Unsere Kernkompetenz liegt in der Arbeit mit{" "}
             <span className="font-semibold text-primary">n8n</span> – einem flexiblen 
             Open-Source-Automationstool – sowie der Entwicklung intelligenter Tools und 
@@ -148,13 +175,20 @@ const Index = () => {
       <section id="automatisierung" className="py-16 px-4 sm:px-6 lg:px-8 bg-background/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">
               Was Sie mit uns automatisieren können
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-foreground max-w-3xl mx-auto leading-relaxed mb-8">
               Von einfachen E-Mail-Workflows bis hin zu komplexen AI-Assistenten – 
               wir finden die passende Lösung für Ihr Business.
             </p>
+            <Button 
+              onClick={() => scrollToSection('kontakt')}
+              size="lg"
+              className="bg-gradient-primary hover:opacity-90 text-primary-foreground text-lg px-8 py-4 shadow-glow"
+            >
+              Kostenlose Beratung
+            </Button>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -171,10 +205,10 @@ const Index = () => {
       <section id="kundenstimmen" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">
               Was unsere Kunden sagen
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-foreground max-w-3xl mx-auto leading-relaxed">
               Echte Erfahrungen von echten Menschen, die ihre Prozesse 
               erfolgreich automatisiert haben.
             </p>
@@ -183,7 +217,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <TestimonialCard text={testimonial} />
+                <TestimonialCard text={testimonial.text} author={testimonial.name} />
               </div>
             ))}
           </div>
